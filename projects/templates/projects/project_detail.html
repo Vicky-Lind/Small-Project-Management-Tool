@@ -1,3 +1,6 @@
+{% extends "./base.html" %}
+
+{% block content %}
 <li>{{ project.title }}</li>
 <li>{{ project.description}}</li>
 <li>{{ project.deadline }}</li>
@@ -7,3 +10,5 @@
 <li>{{ project.owner }}</li>
 <li>{{ project.date_created }}</li>
 <li>{{ project.date_updated }}</li>
+
+{% endblock %}

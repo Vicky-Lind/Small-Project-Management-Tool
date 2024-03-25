@@ -1,3 +1,6 @@
+{% extends "./base.html" %}
+
+{% block content %}
 <form action="{% url 'task_create' %}" method="post">
     {% csrf_token %}
     <input type="text" name="title" placeholder="task title">
@@ -28,3 +31,4 @@
     <input type="submit" value="OK">
 
 </form>
+{% endblock %}
