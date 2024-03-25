@@ -16,7 +16,8 @@ class PriorityChoices(models.TextChoices):
 
 # The Project model should include:
 # Title, description, date_created, deadline
-# status, priority, tags(?), tasks,
+# status, priority, tags(?), tasks, date_updated,
+# budget, owner, 
 class Project(models.Model):
     title = models.CharField(max_length=100)
     description = models.TextField()

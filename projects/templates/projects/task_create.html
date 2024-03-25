@@ -1,10 +1,10 @@
-<form action="{% url 'project_create' %}" method="post">
+<form action="{% url 'task_create' %}" method="post">
     {% csrf_token %}
-    <input type="text" name="title" placeholder="Project title">
+    <input type="text" name="title" placeholder="task title">
     
-    <textarea name="description" placeholder="Project description"></textarea>
+    <textarea name="description" placeholder="task description"></textarea>
 
-    <input type="date" name="deadline" placeholder="Project deadline">
+    <input type="date" name="deadline" placeholder="task deadline">
 
     <label for="status">Status:</label>
     <select id="status" name="status">
@@ -19,10 +19,12 @@
         {% endfor %}
     </select>
 
-    <input type="text" name="budget" placeholder="Project budget">
-
-    <input type="text" name="owner" placeholder="Project owner">
-    
+    <label for="project">Project:</label>
+    <select id="project" name="project">
+        {% for project in projects %}
+        <option value="{{ project.id }}">{{ project.title }}</option>
+        {% endfor %}
+    </select>
     <input type="submit" value="OK">
 
 </form>
