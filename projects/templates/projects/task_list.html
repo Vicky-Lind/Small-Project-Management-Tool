@@ -1,10 +1,14 @@
 {% extends "./base.html" %}
-
 {% block content %}
+
+<h1 class="text-2xl">
+    List of Tasks
+</h1>
+
 {% for task in tasks %}
     <li><a href="{% url 'task_detail' task.id %}">{{ task.title }}</a></li>
 {% endfor %}
 
-<li><a href="{% url 'task_create' %}">Create a new task</a></li>
+<a href="{% url 'task_create' %}">Create a new task</a>
 
 {% endblock %}
