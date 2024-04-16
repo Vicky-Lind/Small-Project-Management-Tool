@@ -28,6 +28,15 @@ def project_create(request):
             'PriorityChoices': PriorityChoices,
         })
         
+def project_delete(request, id):
+    if request.method == 'POST':
+        project = Project.objects.get(pk=id)
+        project.delete()
+        return redirect('project_list')
+    else:
+        return render(request, 'projects/project_delete.html', {
+            'projects': Project.objects.all(),
+        })
 
 def task_list(request):
     return render(request, "projects/task_list.html", {"tasks": Task.objects.all()})

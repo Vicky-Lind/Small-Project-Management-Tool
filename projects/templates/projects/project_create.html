@@ -1,6 +1,6 @@
 {% extends "./base.html" %}
-
 {% block content %}
+
 <form action="{% url 'project_create' %}" method="post">
     {% csrf_token %}
     <input type="text" name="title" placeholder="Project title">

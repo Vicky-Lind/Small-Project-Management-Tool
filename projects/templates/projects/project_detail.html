@@ -1,7 +1,9 @@
 {% extends "./base.html" %}
 
 {% block content %}
-<li>{{ project.title }}</li>
+<h1 class="text-lg">
+    {{ project.title }}
+</h1>
 <li>{{ project.description}}</li>
 <li>{{ project.deadline }}</li>
 <li>{{ project.status }}</li>
@@ -10,5 +12,11 @@
 <li>{{ project.owner }}</li>
 <li>{{ project.date_created }}</li>
 <li>{{ project.date_updated }}</li>
+
+{% comment %} Option to remove the project {% endcomment %}
+<form action="{% url 'project_delete' project.id %}" method="post">
+    {% csrf_token %}
+    <button type="submit">Delete</button>
+</form>
 
 {% endblock %}
